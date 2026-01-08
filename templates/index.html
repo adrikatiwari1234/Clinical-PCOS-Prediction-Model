@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PCOS Prediction System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="main-wrapper">
+<div class="form-card">
+
+<h2>PCOS Prediction System</h2>
+
+<form action="/predict" method="post">
+
+<!-- ================= BASIC DETAILS ================= -->
+<h3>Basic Details</h3>
+
+<label>Age (yrs)</label>
+<input type="number" name="Age(yrs)" required>
+
+<label>BMI</label>
+<input type="number" step="any" name="BMI" required>
+
+<label>Hb (g/dl)</label>
+<input type="number" step="any" name="Hb(g/dl)" required>
+
+<label>Waist : Hip Ratio</label>
+<input type="number" step="any" name="Waist:Hip Ratio" required>
+
+<label>Obese</label>
+<select name="Obese" required>
+    <option value="">Select</option>
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+</select>
+
+<!-- ================= MENSTRUAL DETAILS ================= -->
+<h3>Menstrual Details</h3>
+
+<label>Cycle (R/I)</label>
+<select name="Cycle(R/I)" required>
+    <option value="">Select</option>
+    <option value="0">Irregular</option>
+    <option value="1">Regular</option>
+</select>
+
+<label>Cycle Length (days)</label>
+<input type="number" name="Cycle length(days)" required>
+
+<label>Endometrium (mm)</label>
+<input type="number" step="any" name="Endometrium(mm)" required>
+
+<!-- ================= PREGNANCY DETAILS ================= -->
+<h3>Pregnancy Details</h3>
+
+<label>Pregnant</label>
+<select name="Pregnant(Y/N)" required>
+    <option value="">Select</option>
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+</select>
+
+<label>No. of Abortions</label>
+<input type="number" name="No. of abortions" required>
+
+<label>I beta-HCG (mIU/mL)</label>
+<input type="number" step="any" name="I beta-HCG(mIU/mL)" required>
+
+<label>II beta-HCG (mIU/mL)</label>
+<input type="number" step="any" name="II beta-HCG(mIU/mL)" required>
+
+<!-- ================= HORMONAL DETAILS ================= -->
+<h3>Hormonal Parameters</h3>
+
+<label>FSH (mIU/mL)</label>
+<input type="number" step="any" name="FSH(mIU/mL)" required>
+
+<label>LH (mIU/mL)</label>
+<input type="number" step="any" name="LH(mIU/mL)" required>
+
+<label>FSH / LH</label>
+<input type="number" step="any" name="FSH/LH" required>
+
+<label>TSH (mIU/L)</label>
+<input type="number" step="any" name="TSH(mIU/L)" required>
+
+<label>AMH (ng/mL)</label>
+<input type="number" step="any" name="AMH(ng/mL)" required>
+
+<label>PRL (ng/mL)</label>
+<input type="number" step="any" name="PRL(ng/mL)" required>
+
+<label>Vit D3 (ng/mL)</label>
+<input type="number" step="any" name="Vit D3(ng/mL)" required>
+
+<label>PRG (ng/mL)</label>
+<input type="number" step="any" name="PRG(ng/mL)" required>
+
+<!-- ================= METABOLIC DETAILS ================= -->
+<h3>Metabolic & BP</h3>
+
+<label>RBS (mg/dl)</label>
+<input type="number" step="any" name="RBS(mg/dl)" required>
+
+<label>BP Systolic (mmHg)</label>
+<input type="number" name="BP _Systolic(mmHg)" required>
+
+<label>BP Diastolic (mmHg)</label>
+<input type="number" name="BP _Diastolic(mmHg)" required>
+
+<!-- ================= OVARIAN DETAILS ================= -->
+<h3>Ovarian Ultrasound</h3>
+
+<label>Avg Follicle Count</label>
+<input type="number" step="any" name="Avg Follicle Count" required>
+
+<label>Avg Follicle Size (mm)</label>
+<input type="number" step="any" name="Avg Follicle Size(mm)" required>
+
+<!-- ================= LIFESTYLE & SYMPTOMS ================= -->
+<h3>Lifestyle & Symptoms</h3>
+
+<label>Weight Gain</label>
+<select name="Weight gain(Y/N)" required><option value="">Select</option><option value="0">No</option><option value="1">Yes</option></select>
+
+<label>Hair Growth</label>
+<select name="Hair growth(Y/N)" required><option value="">Select</option><option value="0">No</option><option value="1">Yes</option></select>
+
+<label>Skin Darkening</label>
+<select name="Skin darkening(Y/N)" required><option value="">Select</option><option value="0">No</option><option value="1">Yes</option></select>
+
+<label>Hair Loss</label>
+<select name="Hair loss(Y/N)" required><option value="">Select</option><option value="0">No</option><option value="1">Yes</option></select>
+
+<label>Pimples</label>
+<select name="Pimples(Y/N)" required><option value="">Select</option><option value="0">No</option><option value="1">Yes</option></select>
+
+<label>Fast Food</label>
+<select name="Fast food(Y/N)" required><option value="">Select</option><option value="0">No</option><option value="1">Yes</option></select>
+
+<label>Regular Exercise</label>
+<select name="Reg.Exercise(Y/N)" required><option value="">Select</option><option value="0">No</option><option value="1">Yes</option></select>
+
+<button type="submit">Predict PCOS</button>
+
+</form>
+
+{% if prediction_text %}
+<div class="result-box">{{ prediction_text }}</div>
+{% endif %}
+
+</div>
+</div>
+</body>
+</html>
